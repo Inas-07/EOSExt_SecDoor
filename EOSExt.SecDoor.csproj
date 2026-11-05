@@ -28,10 +28,12 @@
     <Compile Include="Definition\SecDoorIntTextOverride.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="InteractGlitchManager.cs" />
+    <Compile Include="Component\InteractGlitchComp.cs" />
+    <Compile Include="Patches\Patch_SecDoorLocks_OnDoorState.cs" />
+    <Compile Include="Patches\Patch_SecDoorLocks_Setup.cs" />
     <Compile Include="Patches\CustomizeSecDoorInteractionText.cs" />
-    <Compile Include="Patches\InteractGlitch.cs" />
     <Compile Include="SecDoorIntTextOverrideManager.cs" />
+    <Compile Include="Utils\TSLUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies.props" />
