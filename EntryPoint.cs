@@ -5,6 +5,7 @@ using ExtraObjectiveSetup.JSON;
 using ExtraObjectiveSetup.JSON.MTFOPartialData;
 using GTFO.API;
 using HarmonyLib;
+using Il2CppInterop.Runtime.Injection;
 
 namespace EOSExt.SecDoor
 {
@@ -26,6 +27,8 @@ namespace EOSExt.SecDoor
         public override void Load()
         {
             SetupManagers();
+
+            ClassInjector.RegisterTypeInIl2Cpp<InteractGlitchComp>();
 
             m_Harmony = new Harmony("EOSExt.SecDoor");
             m_Harmony.PatchAll();
