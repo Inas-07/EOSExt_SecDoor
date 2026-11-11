@@ -2,13 +2,15 @@
 using BepInEx.Unity.IL2CPP;
 using ExtraObjectiveSetup.Utils;
 using ExtraObjectiveSetup.JSON;
+using ExtraObjectiveSetup.JSON.MTFOPartialData;
 using GTFO.API;
 using HarmonyLib;
+using Il2CppInterop.Runtime.Injection;
 
 namespace EOSExt.SecDoor
 {
     [BepInDependency("dev.gtfomodding.gtfo-api", BepInDependency.DependencyFlags.HardDependency)]
-    [BepInDependency("GTFO.FloLib", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("Amor.AmorLib", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("Inas.ExtraObjectiveSetup", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency(MTFOPartialDataUtil.PLUGIN_GUID, BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency(InjectLibUtil.PLUGIN_GUID, BepInDependency.DependencyFlags.SoftDependency)]
@@ -25,6 +27,8 @@ namespace EOSExt.SecDoor
         public override void Load()
         {
             SetupManagers();
+
+            ClassInjector.RegisterTypeInIl2Cpp<InteractGlitchComp>();
 
             m_Harmony = new Harmony("EOSExt.SecDoor");
             m_Harmony.PatchAll();
